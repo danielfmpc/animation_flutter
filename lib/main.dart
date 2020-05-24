@@ -27,8 +27,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       duration: Duration(seconds: 2),
     );
 
-    _animation = Tween<double>(begin: 0, end: 300).animate(_animation);
-    _animation.addListener(() {
+    _animation = Tween<double>(begin: 0, end: 300).animate(_animation)
+    ..addListener(() {
       setState(() {
         
       });
