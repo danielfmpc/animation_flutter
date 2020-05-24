@@ -28,6 +28,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
 
     _animation = Tween<double>(begin: 0, end: 300).animate(_animation);
+    _animation.addListener(() {
+      setState(() {
+        
+      });
+    });
+
+    _animationController.forward();
+
   }
 
   @override
