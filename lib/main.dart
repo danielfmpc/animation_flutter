@@ -27,12 +27,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       duration: Duration(seconds: 2),
     );
 
-    _animation = Tween<double>(begin: 0, end: 300).animate(_animation)
-    ..addListener(() {
-      setState(() {
-        
-      });
-    });
+    _animation = Tween<double>(begin: 0, end: 300).animate(_animation);
 
     _animationController.forward();
 
@@ -46,6 +41,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    return AnimatedLogo(_animation);
+  }
+}
+
+class AnimatedLogo extends AnimatedWidget {
+  AnimatedLogo(Animation<double> _animation) : super(listenable: _animation);
+  @override
+  Widget build(BuildContext context) {
+    Animation<double> _animation = listenable;
     return Center(
       child: Container(
         width: _animation.value,
@@ -54,5 +58,5 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       ),
     );
   }
+  
 }
-
