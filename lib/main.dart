@@ -15,7 +15,9 @@ class Home extends StatefulWidget  {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  
   AnimationController _animationController;
+  Animation<double> _animation;
 
   @override
   void initState() {
@@ -24,6 +26,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       vsync: this,
       duration: Duration(seconds: 2),
     );
+
+    _animation = Tween<double>(begin: 0, end: 300).animate(_animation);
   }
 
   @override
