@@ -38,8 +38,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Center(
+      child: Container(
+        width: _animation.value,
+        height: _animation.value,
+        child: FlutterLogo(),
+      ),
     );
   }
 }
