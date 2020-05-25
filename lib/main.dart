@@ -22,12 +22,20 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 2),
     );
 
     _animation = Tween<double>(begin: 0, end: 300).animate(_animation);
+    _animation.addStatusListener((status) { 
+      if(status == AnimationStatus.completed){
+      _animationController.forward();
+      }else if(status == AnimationStatus.dismissed){
+      _animationController.forward();
+      }
+    });
 
     _animationController.forward();
 
@@ -57,6 +65,5 @@ class AnimatedLogo extends AnimatedWidget {
         child: FlutterLogo(),
       ),
     );
-  }
-  
+  }  
 }
